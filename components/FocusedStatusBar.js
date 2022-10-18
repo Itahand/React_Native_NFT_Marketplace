@@ -1,14 +1,10 @@
-import { Text, View } from 'react-native'
-import React, { Component } from 'react'
+import { StatusBar } from 'react-native';
+import { useIsFocused } from '@react-navigation/core'
 
-export class FocusedStatusBar extends Component {
-  render() {
-    return (
-      <View>
-        <Text>FocusedStatusBar</Text>
-      </View>
-    )
-  }
+const FocusedStatusBar = (props) => {
+  const isFocused = useIsFocused();
+
+  return isFocused ? <StatusBar animated={true} {...props} /> : null;
 }
 
 export default FocusedStatusBar
